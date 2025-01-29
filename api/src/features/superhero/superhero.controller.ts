@@ -4,7 +4,7 @@ import { Response } from 'src/api/response';
 import { CreateSuperheroRequest, GetSuperheroRequest } from './dto/superhero.request';
 import { SuperheroService } from './superhero.service';
 
-@Controller('v1/superhero')
+@Controller('v1/superheroes')
 export class SuperheroController {
     constructor(private readonly superheroService: SuperheroService) {}
 
