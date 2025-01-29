@@ -11,6 +11,7 @@ import {
 import { Response } from 'express';
 import { Response as BaseResponse } from '../response';
 
+// This filter catches all internal server errors and logs them. It returns a generic error response.
 @Catch(InternalServerErrorException)
 export class GlobalExceptionFilter implements ExceptionFilter {
     private readonly logger = new Logger(GlobalExceptionFilter.name);
@@ -23,6 +24,8 @@ export class GlobalExceptionFilter implements ExceptionFilter {
     }
 }
 
+
+// This filter catches all validation errors and returns a generic validation error response.
 @Catch(BadRequestException)
 export class ValidationExceptionFilter implements ExceptionFilter {
     catch(exception: BadRequestException, host: ArgumentsHost) {

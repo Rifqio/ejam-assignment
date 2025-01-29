@@ -7,6 +7,7 @@ export interface FilterOptions<M> {
     limit?: number;
 }
 
+// This is a generic repository interface that can be used to standardize the repository format of database repositories.
 export interface Repository<K, M> {
     create(model: M): M;
     update(id: K, model: M): M;

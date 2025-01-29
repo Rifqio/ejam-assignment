@@ -3,6 +3,8 @@ interface Pagination {
     take: number;
 }
 
+// This is a generic response class that can be used to standardize the response format of API endpoints. 
+// It includes properties for success, message, data, error, errors, and pagination.
 export class Response<T> {
     public success: boolean;
     public message: string;

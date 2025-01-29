@@ -9,6 +9,7 @@ export class SuperheroService {
     constructor(private readonly superheroRepository: SuperheroRepository) {}
 
     public getSuperheroes(filter: GetSuperheroRequest): Superhero[] {
+        // The default values for page, take, orderBy, and order are set here.
         const { page = 1, take = 10, orderBy = 'humilityScore', order = 'DESC' } = filter;
         const options: FilterOptions<Superhero> = {
             orderBy: orderBy as keyof Superhero,

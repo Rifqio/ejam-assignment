@@ -1,6 +1,6 @@
 import { Alert, Button, Heading, HStack, Input, Stack } from '@chakra-ui/react';
 import { AxiosError } from 'axios';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { IoHeart, IoTrash } from 'react-icons/io5';
 import { SuperheroFormDTO } from './api/features/superhero/dto/superhero.request.dto';
 import { POSTCreateSuperhero } from './api/features/superhero/superhero.api';
@@ -37,25 +37,22 @@ function App() {
     const [superPowers, setSuperPowers] = useState<string[]>([]);
     const [powerInput, setPowerInput] = useState('');
     const [humilityScore, setHumilityScore] = useState(0);
+    // Form state to handle submission status
     const [formState, setFormState] = useState<FormState>({
         isSubmitting: false,
         isSuccess: false,
         isError: false,
         errorMessage: '',
     });
+    // Error state for form fields
     const [errorForm, setErrorForm] = useState<SuperheroErrorForm>({
         name: '',
         humilityScore: '',
         powers: '',
     });
 
+    // State to reload the table after submission
     const [reloadTable, setReloadTable] = useState(false);
-
-    useEffect(() => {
-        if (formState.errorMessage) {
-            console.log('Updated error message:', formState.errorMessage);
-        }
-    }, [formState.errorMessage]);
 
     const onChangeSuperheroName = (e: React.ChangeEvent<HTMLInputElement>) => {
         setFormState({ ...formState, isError: false });

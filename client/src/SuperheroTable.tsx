@@ -1,5 +1,6 @@
 import { Table } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
+import { GetSuperheroesParamsDTO } from './api/features/superhero/dto/superhero.request.dto';
 import { CreateSuperheroResponseDTO } from './api/features/superhero/dto/superhero.response.dto';
 import { GETSuperheroes } from './api/features/superhero/superhero.api';
 
@@ -7,10 +8,18 @@ export const SuperheroTable = ({ reload }: { reload: boolean }) => {
     const [tableData, setTableData] = useState<CreateSuperheroResponseDTO[]>(
         []
     );
+
+    const defaultParams: GetSuperheroesParamsDTO = {
+        page: 1,
+        take: 10,
+        orderBy: 'humilityScore',
+        order: 'DESC',
+    }
+
     useEffect(() => {
         const loadData = async () => {
             try {
-                const res = await GETSuperheroes();
+                const res = await GETSuperheroes(defaultParams);
                 if (res.data) {
                     setTableData(res.data);
                 }
