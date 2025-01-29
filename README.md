@@ -33,7 +33,7 @@ Start the server in development mode as well
 #### Get All Superheroes
 
 ```http
-  GET /api/v1/superhero
+  GET /api/v1/superheroes
 ```
 
 | Query       | Type       | Description                                                                                                                              |
@@ -46,7 +46,7 @@ Start the server in development mode as well
 #### Create Superhero
 
 ```http
-  POST /api/v1/superhero
+  POST /api/v1/superheroes
 ```
 
 | Payload           | Type              | Description                                         |
